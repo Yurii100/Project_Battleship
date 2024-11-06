@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<!-- Copyright
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Guess</title>
+    <style>
+        body { margin: 20px; } 
+        img { margin: 20px; }
+    </style>
+    <script>
+        function reblur(image) {
+            var name = image.id;
+            name = name + "blur.jpg";
+            image.src = name;
+        }
+        function showAnswer(eventObj) {
+            var image = eventObj.target;
+            var name = image.id;
+            name = name + ".jpg";
+            image.src = name;
+            setTimeout(reblur, 2000, image);
+        }
+        function init() {
+            var images = document.getElementsByTagName("img");
+            for (var i = 0; i < images.length; i++) {
+                images[i].onclick = showAnswer;
+            }            
+        }
+        window.onload = init; // В данном случаи у функции init нет круглых скобок т.к. эта функция не запускается, а просто присваивается свойству onload объекта window.        
+    </script>
+</head>
+<body>
+    <img id="../images/zero" src="../images/zeroblur.jpg">
+    <img id="../images/one" src="../images/oneblur.jpg">
+    <img id="../images/two" src="../images/twoblur.jpg">
+    <img id="../images/three" src="../images/threeblur.jpg">
+    <img id="../images/four" src="../images/fourblur.jpg">
+    <img id="../images/five" src="../images/fiveblur.jpg">
+</body>
+</html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pirates Booty</title>
+    <script>
+        window.onload = init;
+        function showCoords(eventObj) {
+            var map = document.getElementById("coords");
+            var x = eventObj.clientX;
+            var y = eventObj.clientY;
+            map.innerHTML="Map coordinates: " + x + ", " + y;
+        }
+        function init() {
+            var map = document.getElementById("map");
+            map.onmousemove = showCoords;
+        }
+    </script>
+</head>
+<body>
+    <img id="map" src="../images/map.jpg">
+    <p id="coords">Move mouse to find coordinates...</p>
+</body>
+</html>
+-->
+
+<!--Полный код с замкнутой функцией. Замыкание.
+    <html lang="en">
+    <meta charset="utf-8"> 
+    <title>Click me!</title>
+    <style>
+        body, button { margin: 10px; }
+        div { padding: 10px; }
+    </style>
+    <script>
+        window.onload=function() {
+            var count = 0;
+            var message = "You clicked me ";
+            var div = document.getElementById("message");
+            var button = document.getElementById("clickme");
+            button.onclick = function() {
+                count++;
+                div.innerHTML = message + count + " times!";
+            }
+        }
+    </script>
+    <body>
+        <button id="clickme">Click me!</button>
+        <div id="message"></div>
+    </body>
+</head>
+-->
+<!--
+<html>
+    <head>
+        <title>Листинг 7.5</title>
+        <script>
+            function openWindow() {
+                if(window.mywindow&&!mywindow.closed) { // Проверка того открыто ли окно с документы.
+                    window.alert("Документ открыт.")
+                }
+                else {
+                    window.mywindow=window.open("Head First.html") // Открытие окна после проверки уславия.
+                }
+            }
+            function closeWindow() {
+                if(window.mywindow&&!mywindow.closed) { // Проверка того закрыто ли окно с документы.
+                    mywindow.close()
+                    window.mywindow=null // Обнуляется ссылка на окно.
+                }
+                else {
+                    window.alert("Окно уже закрыто.")
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <b>Открытие и закрытие окна</b><br>
+        <a href="javascript:openWindow()">Открыть файл Head First.html</a><br>
+        <a href="javascript:closeWindow()">Закрыть окно с файлом Head First.html</a>
+    </body>
+</html>
+-->
+<!--
+<html>
+    <head>
+        <title>Листинг 7.9</title>    
+    </head>
+    <body>
+        <h3>Листинг 7.9</h3><hr>
+        <p id="mydata" style="font-family:arial;font-size:25pt;color:black;"><b>Клавиша не нажата: чёрный текст на белом фоне.</b></p><hr>
+        <b>Обратите внимание на цвет фона и текст, представленный выше.</b>
+        <script>
+            window.onkeydown = function() {
+                document.body.style.backgroundColor = "yellow"
+                var mydata = document.getElementById("mydata")
+                mydata.style.color = "blue"
+                mydata.innerHTML = "<b>Нажата клавиша: синий текст на жёлтом фоне.</b>"
+            }
+            window.onkeyup = function() {
+                document.body.style.backgroundColor = "white"
+                var mydata = document.getElementById("mydata")
+                mydata.style.color = "black"
+                mydata.innerHTML = "<b>Нажата клавиша: чёрный текст на белом фоне.</b>"
+            }
+        </script>
+    </body>
+</html>
+-->
+<!--
+<html>
+    <head>
+        <title>Листинг 8.1</title>
+        <script src="../JavaScript files/Листинг 8.1.js"></script>
+    </head>
+    <body>
+        <h3>Листинг 8.1</h3>
+        <b>Поле ввода содержит следующий текст:</b><br>
+        <i id="mytext"; style = "font-size:25pt; color:red;"></i><br>
+        <input type="text" id="textField" size="62"><br>
+        <input type="button" id="applyButton" value="Применить" style="width:200px;height:30px;">
+        <input type="button" id="unlockButton" value="Разблокировать" style="width:200px;height:30px;">
+        <p id="myprompt"></p>
+    </body>
+</html>
+-->
+<!--
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            * {
+              margin: 0;
+              padding: 0;
+            }
+            #example {
+              width: 300px;
+              height: 200px;
+              overflow: auto;
+              border: 25px solid #E8C48F;
+              padding: 20px;
+            }
+            .key {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          </style>
+        <title>Список</title>
+    </head>
+    <body>
+        <div id="example">
+            <h3>Introduction</h3>
+            <p>This Ecma Standard is based on several originating technologies, the most well known being JavaScript (Netscape) and JScript (Microsoft). The language was invented by Brendan Eich at Netscape and first appeared in that company's Navigator 2.0 browser.
+              It has appeared in all subsequent browsers from Netscape and in all browsers from Microsoft starting with Internet Explorer 3.0. The development of this Standard started in November 1996. The first edition of this Ecma Standard was adopted by the
+              Ecma General Assembly of June 1997.
+            </p>
+            <p>That Ecma Standard was submitted to ISO/IEC JTC 1 for adoption under the fast-track procedure, and approved as international standard ISO/IEC 16262, in April 1998. The Ecma General Assembly of June 1998 approved the second edition of ECMA-262 to keep
+              it fully aligned with ISO/IEC 16262. Changes between the first and the second edition are editorial in nature.
+            </p>
+            <p>The third edition of the Standard introduced powerful regular expressions, better string handling, new control statements, try/catch exception handling, tighter definition of errors, formatting for numeric output and minor changes in anticipation
+              of forthcoming internationalisation facilities and future language growth. The third edition of the ECMAScript standard was adopted by the Ecma General Assembly of December 1999 and published as ISO/IEC 16262:2002 in June 2002.
+            </p>
+        </div>
+        <div id="mouse-wrap">Координаты мыши: <span id="mouse">...</span></div>
+        <div id="info"></div>
+    </body>
+    <script>
+        let props = {
+            geometry: ['clientLeft', 'clientTop', 'clientWidth', 'clientHeight', 'offsetWidth', 'offsetHeight', 'scrollWidth', 'scrollHeight'],
+            scroll: ['scrollLeft', 'scrollTop'],
+            offsetParent: ['offsetParent', 'offsetLeft', 'offsetTop']
+        };
+        info.innerHTML = '<h3>Click to see the value:</h3>';
+        for (let k in props) {
+            info.innerHTML += `<h4>${k}</h4>`;
+            let prop = props[k];
+            for (let i = 0; i < prop.length; i++) {
+                info.innerHTML += "<span class='key'>" + prop[i] + '</span>: <span id="' + prop[i] + '">&nbsp;</span>' + "; "; // Если указать только эту строку то тогда значения элементов массива будут выводиться в строку, а не двумя равными столбиками.
+                i++; // Из-за двух инкрементов этого и того что в цикле получается так что пропускается каждый второй элемент массива и из-за этого нужно использовать проверку if (i < prop.length) и дублировать код.
+                if (i < prop.length) {
+                    info.innerHTML += "<span class='key'>" + prop[i] + '</span>: <span id="' + prop[i] + '">&nbsp;</span>' + "; ";
+                }
+                info.innerHTML += "<br/>"; // Созда равные столбики.
+            }
+        };
+        document.onclick = function(event) {
+            let target = event.target; // получаем элемент, по которому кликнули.
+            if (!target.classList.contains('key')) return; // Эта проверка нужна для того, чтобы обработать только те клики, которые произошли по элементам с классом ‘key’.
+            let prop = target.innerHTML; // получаем имя свойства из текста span.
+            let value = example[prop]; // получаем значение свойства из элемента example.
+            value = value.tagName || value; // если значение является элементом, то берем его тег, иначе оставляем как есть.
+            document.getElementById(prop).innerHTML = value; // выводим значение в span с тем же идентификатором.
+        };
+        document.onmousemove = function(e) {
+            document.getElementById('mouse').innerHTML = Math.round(e.clientX) + ':' + Math.round(e.clientY);
+        };                 
+    </script>
+</html>
+-->
+<!--
+<html>
+    <head>
+        <style>
+            #field {
+                width: 200px;
+                border: 10px groove black;
+                background-color: #00FF00;
+                position: relative;
+            }
+            #ball {
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="field">
+            <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+            . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+        </div>
+        <script>
+            let field = document.getElementById("field");
+            let ball = document.getElementById("ball");
+            ball.style.width = "40px";
+            ball.style.height = "40px";         
+            ball.style.left = Math.round(field.clientWidth / 2 - ball.offsetWidth / 2) + "px";
+            ball.style.top = Math.round(field.clientHeight / 2 - ball.offsetHeight / 2) + "px";
+        </script>
+    </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Информационная карточка</title>
+        <style>
+            .main-container {
+                display: flex;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                border: 1px solid grey;
+                margin-left: 20px;
+            }
+            .element_1 {
+                background: linear-gradient(0deg, #9e4860 30%, #5f63aa 80%); 
+                transition: transform 1s linear; 
+            }
+            .element_2 {
+                background-color: rgb(212, 113, 113);
+                margin-top: 150px;
+                z-index: 1000;
+            }   
+            .element_3 {
+                background-color: rgb(212, 113, 113);
+                margin-top: 150px;
+            }
+            .element_4 {
+                background: linear-gradient(0deg, #dd3b3b 35%, #e46f6f 70%); 
+                margin-top: 300px;
+                transition: transform 1s linear; 
+                transform-origin: 0 0;
+            }
+            .element_1:hover {
+                transform: translate(150px, 150px);
+            }
+            .element_4:hover {
+                transform: rotate(35deg) scale(1.3);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="box element_1"></div>
+            <div class="box element_2"></div>
+            <div class="box element_3"></div>
+            <div class="box element_4"></div>
+        </div>
+    </body>
+</html>
+
+
