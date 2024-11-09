@@ -37,7 +37,7 @@ nav ul li.selected {
 #tableRow{
     display: table-row;
 }
-section#blog {
+#blog {
     display: table-cell;
     background: #efe5d0 url(images/background.gif) top left;
     font-size: 105%;
